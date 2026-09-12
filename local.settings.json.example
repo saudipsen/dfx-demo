@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "languageWorkers__python__arguments": "-m debugpy --listen 127.0.0.1:5678",
+    "DTS_NORMALIZATION_URL": "",
+    "DTS_NORMALIZATION_PATH": "/normalize",
+    "DTS_REQUIRED": "false",
+    "ETL_INPUT_FOLDER": "data/incoming",
+    "ETL_OUTPUT_FOLDER": "data/output",
+    "ETL_WORK_FOLDER": "data/work",
+    "AGENT_REQUIRED": "false",
+    "AZURE_OPENAI_ENDPOINT": "https://your-resource.openai.azure.com/",
+    "AZURE_OPENAI_API_KEY": "",
+    "AZURE_OPENAI_MODEL": "gpt-4o-mini",
+    "AZURE_OPENAI_API_VERSION": "2024-10-21"
+  }
+}

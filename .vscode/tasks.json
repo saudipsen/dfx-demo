@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "func: stop existing",
+      "type": "shell",
+      "command": "$connections = @(Get-NetTCPConnection -LocalPort 5678,7071 -State Listen -ErrorAction SilentlyContinue); $connections | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; exit 0",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "func: host start",
+      "type": "shell",
+      "command": "Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned; & \"${workspaceFolder}\\.venv\\Scripts\\Activate.ps1\"; func host start --verbose",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": [
+        "func: stop existing"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": {
+        "owner": "azure-functions",
+        "pattern": {
+          "regexp": ".*"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": "Worker process started and initialized|Host lock lease acquired"
+        }
+      }
+    }
+  ]
+}

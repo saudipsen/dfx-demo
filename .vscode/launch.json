@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Durable Functions Python worker",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "justMyCode": true,
+      "subProcess": false,
+      "preLaunchTask": "func: host start"
+    },
+    {
+      "name": "Attach to running Durable Functions worker",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "justMyCode": true,
+      "subProcess": false
+    }
+  ]
+}

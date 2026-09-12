@@ -1,0 +1,8 @@
+azure-functions>=2.3.0
+azure-functions-durable==2.0.0b1
+agent-framework
+debugpy
+httpx
+pandas
+openpyxl
+python-docx
